@@ -1,0 +1,79 @@
+import turtle
+import time
+import random
+
+delay = 0.3
+score = 0
+high_score = 0
+wn = turtle.Screen()
+wn.title('Test')
+wn.bgcolor('red')
+
+wn.setup(width=350, height=350)
+wn.tracer(1)
+
+t = turtle.Turtle()
+t.shape('triangle')
+t.color('green')
+t.penup()
+t.goto(0, 1)
+t.direction = 'Stop'
+
+game = turtle.Turtle()
+colors = random.choice(['gold', 'silver', 'green'])
+shapes = random.choice(['square', 'triangle', 'square'])
+game.speed(2)
+game.shape(shapes)
+game.color(colors)
+game.penup()
+game.goto(2, 110)
+
+finish = turtle.Turtle()
+finish.speed(3)
+finish.shape('square')
+finish.color('yellow')
+finish.penup()
+finish.hideturtle()
+finish.goto(0, 265)
+#finish.write('Game Score: 0 Highest Score: 0', allign = 'center',
+          #font =('candara', 24, 'bold'))
+
+def group():
+    if game.direction != 'down':
+        game.direction = 'up'
+
+def godown():
+    if game.direction != 'up':
+        game.direction = 'down'
+
+def goleft():
+    if game.direction != 'right':
+        game.direction = 'left'
+
+def goright():
+    if game.direction != 'left':
+        game.direction = 'right'
+
+def moce():
+    if game.direction == 'up':
+        y = game.ycor()
+        game.sety(y+20)
+    if game.direction == 'down':
+        y = head.ycor()
+        game.sety(y-20)
+    if game.direction == "left":
+        x = head.xcor()
+        head.setx(x-20)
+    if game.direction == "right":
+        x = head.xcor()
+        head.setx(x+20)
+ 
+ 
+wn.listen()
+wn.onkeypress(group, "w")
+wn.onkeypress(godown, "s")
+wn.onkeypress(goleft, "a")
+wn.onkeypress(goright, "d")
+ 
+segments = []
+        
